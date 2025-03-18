@@ -1,0 +1,51 @@
+<div id="app" class="day">
+    <p>I am a HashedBit student, ready to become an awesome full stack developer</p>
+    <button onclick="swapTheme()" id="swap" class="button_day">Toggle theme</button>
+</div>
+
+<style>
+    .day {
+        background-color: white;
+        color: black;
+    }
+
+    .night {
+        background-color: black;
+        color: gold;
+    }
+
+    .button_night {
+        background-color: darkblue;
+        color: white;
+    }
+
+    .button_day {
+        background-color: white;
+        color: black;
+    }
+
+    html, body {
+        margin: 0px;
+        height: 100%;
+    }
+
+    #app {
+        height: 100%;
+        padding: 10px;
+    }
+</style>
+
+<script>
+    function swapTheme() {
+        let appDiv = document.getElementById("app"); // Fix: Added quotes
+        let button1 = document.getElementById("swap"); // Fix: Added quotes
+
+        if (appDiv.classList.contains("day")) {
+            appDiv.classList.replace("day", "night"); // Fix: Correct replace syntax
+            button1.classList.replace("button_day", "button_night"); // Fix: Change button style
+        } else {
+            appDiv.classList.replace("night", "day"); // Fix: Correct replace syntax
+            button1.classList.replace("button_night", "button_day"); // Fix: Change button style
+        }
+    }
+</script>
