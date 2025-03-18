@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment 3</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .question-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .result-container {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Assignment 3</h1>
+
+    <div class="question-container">
+        <h3>Q1) Remove states starting with vowels</h3>
+        <button onclick="executeQ1()">Execute</button>
+        <div id="resultQ1" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q2) Reverse 'I love my India'</h3>
+        <button onclick="executeQ2()">Execute</button>
+        <div id="resultQ2" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q3) Change 'INDIA' to 'INDONESIA'</h3>
+        <button onclick="executeQ3()">Execute</button>
+        <div id="resultQ3" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q4) Count vowels and consonants (min 20 chars)</h3>
+        <textarea id="inputQ4" rows="3" cols="50">This is a long string with more than twenty characters.</textarea>
+        <button onclick="executeQ4()">Execute</button>
+        <div id="resultQ4" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q5) Replace wrong word</h3>
+        <label for="stringQ5">String:</label>
+        <input type="text" id="stringQ5" value="This is a wronge sentence."><br><br>
+        <label for="wrongQ5">Wrong:</label>
+        <input type="text" id="wrongQ5" value="wronge"><br><br>
+        <label for="correctQ5">Correct:</label>
+        <input type="text" id="correctQ5" value="wrong"><br><br>
+        <button onclick="executeQ5()">Execute</button>
+        <div id="resultQ5" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q6) Filter numbers greater than 5</h3>
+        <button onclick="executeQ6()">Execute</button>
+        <div id="resultQ6" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q7) Calculate student average scores</h3>
+        <button onclick="executeQ7()">Execute</button>
+        <div id="resultQ7" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q8) Repeated sum of digits</h3>
+        <label for="numQ8">Number:</label>
+        <input type="number" id="numQ8" value="456">
+        <button onclick="executeQ8()">Execute</button>
+        <div id="resultQ8" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q9) Count words in a paragraph</h3>
+        <textarea id="paragraphQ9" rows="3" cols="50">This is a sample paragraph with several words.</textarea>
+        <button onclick="executeQ9()">Execute</button>
+        <div id="resultQ9" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q10) Reverse a string</h3>
+        <label for="stringQ10">String:</label>
+        <input type="text" id="stringQ10" value="Hello">
+        <button onclick="executeQ10()">Execute</button>
+        <div id="resultQ10" class="result-container"></div>
+    </div>
+
+    <div class="question-container">
+        <h3>Q11) Calculate average from nested student data</h3>
+        <button onclick="executeQ11()">Execute</button>
+        <div id="resultQ11" class="result-container"></div>
+    </div>
+
+    <script>
+        // Q1 Functions
+        const statesOfIndia = [
+            "Andhra Pradesh",
+            "Arunachal Pradesh",
+            "Assam",
+            "Bihar",
+            "Chhattisgarh",
+            "Goa",
+            "Gujarat",
+            "Haryana",
+            "Himachal Pradesh",
+            "Jammu and Kashmir",
+            "Jharkhand",
+            "Karnataka",
+            "Kerala",
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "Odisha",
+            "Punjab",
+            "Rajasthan",
+            "Sikkim",
+            "Tamil Nadu",
+            "Telangana",
+            "Tripura",
+            "Uttar Pradesh",
+            "Uttarakhand",
+            "West Bengal",
+        ];
+        const vowels = "AEIOUaeiou";
+        function removeVowelStates(states) {
+            return states.filter(state => !vowels.includes(state[0]));
+        }
+        function executeQ1() {
+            const result = removeVowelStates(statesOfIndia);
+            document.getElementById("resultQ1").textContent = JSON.stringify(result);
+        }
+
+        // Q2 Functions
+        function reverseWords(str) {
+            const words = str.split(' ');
+            const reversedWords = [words[3], words[2], words[1], words[0]];
+            return reversedWords.join(' ');
+        }
+        function executeQ2() {
+            const str = 'I love my India';
+            const result = reverseWords(str);
+            document.getElementById("resultQ2").textContent = result;
+        }
+
+        // Q3 Functions
+        function insertIntoString(str) {
+            const stringArray = str.split('');
+            stringArray.splice(3, 0, 'O', 'N', 'E', 'S');
+            return stringArray.join('');
+        }
+        function executeQ3() {
+            const str = 'INDIA';
+            const result = insertIntoString(str);
+            document.getElementById("resultQ3").textContent = result;
+        }
+
+        // Q4 Functions
+        function countVowelsAndConsonants(str) {
+            const vowels = "AEIOUaeiou";
+            let vowelCount = 0;
+            let consonantCount = 0;
+            for (const char of str) {
+                if (/[a-zA-Z]/.test(char)) {
+                    if (vowels.includes(char)) {
+                        vowelCount++;
+                    } else {
+                        consonantCount++;
+                    }
+                }
+            }
+            return { vowels: vowelCount, consonants: consonantCount };
+        }
+        function executeQ4() {
+            const inputString = document.getElementById("inputQ4").value;
+            const result = countVowelsAndConsonants(inputString);
+            document.getElementById("resultQ4").textContent = JSON.stringify(result);
+        }
+
+        // Q5 Functions
+        function correctfn(string, wrong, correct) {
+            return string.replace(wrong, correct);
+        }
+        function executeQ5() {
+            const str = document.getElementById("stringQ5").value;
+            const wrong = document.getElementById("wrongQ5").value;
+            const correct = document.getElementById("correctQ5").value;
+            const result = correctfn(str, wrong, correct);
+            document.getElementById("resultQ5").textContent = result;
+        }
+
+        // Q6 Functions
+        const inputArrQ6 = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+        function filterGreaterThanFive(arr) {
+            return arr.filter(number => number > 5);
+        }
+        function executeQ6() {
+            const result = filterGreaterThanFive(inputArrQ6);
+            document.getElementById("resultQ6").textContent = JSON.stringify(result);
+        }
+
+        // Q7 Functions
+        const studentsQ7 = [
+            { name: "Ram", scores: [80, 70, 60] },
+            { name: "Mohan", scores: [80, 70, 90] },
+            { name: "Sai", scores: [60, 70, 80] },
+            { name: "Hemang", scores: [90, 90, 80, 80] },
+        ];
+        function calculateAverageScores(students) {
+            return students.map(student => {
+                const sum = student.scores.reduce((acc, score) => acc + score, 0);
+                const average = sum / student.scores.length;
+                return { name: student.name, average: average };
+            });
+        }
+        function executeQ7() {
+            const result = calculateAverageScores(studentsQ7);
+            document.getElementById("resultQ7").textContent = JSON.stringify(result);
+        }
+
+        // Q8 Functions
+        function singleDigitSum(num) {
+            while (num >= 10) {
+                let sum = 0;
+                const numStr = String(num);
+                for (const digit of numStr) {
+                    sum += parseInt(digit);
+                }
+                num = sum;
+            }
+            return num;
+        }
+        function executeQ8() {
+            const num = parseInt(document.getElementById("numQ8").value);
+            const result = singleDigitSum(num);
+            document.getElementById("resultQ8").textContent = result;
+        }
+
+        // Q9 Functions
+        function countWords(paragraph) {
+            const words = paragraph.trim().split(/\s+/);
+            return words.length;
+        }
+        function executeQ9() {
+            const paragraph = document.getElementById("paragraphQ9").value;
+            const result = countWords(paragraph);
+            document.getElementById("resultQ9").textContent = result;
+        }
+
+        // Q10 Functions
+        function reverseString(str) {
+            return str.split('').reverse().join('');
+        }
+        function executeQ10() {
+            const str = document.getElementById("stringQ10").value;
+            const result = reverseString(str);
+            document.getElementById("resultQ10").textContent = result;
+        }
+
+        // Q11 Functions
+        const studentDataQ11 = [
+            {
+                student1: {
+                    subject1: 44,
+                    subject2: 56,
+                    subject3: 87,
+                    subject4: 97,
+                    subject5: 37
+                }
+            },
+            {
+                student2: {
+                    subject1: 44,
+                    subject2: 56,
+                    subject3: 87,
+                    subject4: 97,
+                    subject5: 37
+                }
+            },
+            {
+                student3: {
+                    subject1: 44,
+                    subject2: 56,
+                    subject3: 87,
+                    subject4: 97,
+                    subject5: 37
+                }
+            }
+        ];
+        function calculateNestedAverage(data) {
+            return data.map(studentObj => {
+                const studentName = Object.keys(studentObj)[0];
+                const scores = Object.values(studentObj[studentName]);
+                const sum = scores.reduce((acc, score) => acc + score, 0);
+                const average = sum / scores.length;
+                return {[studentName]: { average: parseFloat(average.toFixed(1)) } };
+            });
+        }
+        function executeQ11() {
+            const result = calculateNestedAverage(studentDataQ11);
+            document.getElementById("resultQ11").textContent = JSON.stringify(result);
+        }
+    </script>
+
+</body>
+</html>
