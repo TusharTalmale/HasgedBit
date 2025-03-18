@@ -1,0 +1,80 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://source.unsplash.com/1600x900/?krishna') no-repeat center center/cover;
+    color: white;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+}
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+}
+.header .social-links a {
+    color: #FFD700;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.menubar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    text-align: center;
+}
+.menubar a {
+    color: #FFD700;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.content-wrapper {
+    display: flex;
+    flex: 1;
+}
+.sidebar {
+    width: 25%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+}
+.main-content {
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+.box {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #FFD700;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+.box img {
+    height: 90%;
+    height: 150px;
+    object-fit: cover;
+}
+.footer {
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 10px;
+}
+.P{
+    margin-top: 10;
+font-weight: bold;
+}
